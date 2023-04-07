@@ -1,29 +1,46 @@
-<section class = 'appearance-none'>
+<h1>List of all posts</h1>
 
-<h1 class = 'text-3xl font-medium'>List of posts for a given user</h1>
+<div class= "user-details gap" >
+    <div class = "user ">
+        <div class = "userphoto">
+            <% if @user.photo %>
+                <img src="<%= @user.photo %>" >
+            <% else %>
+                <p> No image found </p>
+            <% end %>
+        </div>
 
-    <img src="<%= @user.photo %>" alt="user photo">
+        <div class = "username">
+                <h2 ><%= @user.name %></h2>
+                <p> Number of posts: <%= @user.posts_counter %> </p>
+        </div>
+    </div>
+    <% counter = 1 %>
+    
+    <% @user.posts.each do |post| %>
+        <a href=<%= "/users/#{@user.id}/posts/#{post.id}" %> >
+            <div class="post">
+                <div>
+                    <h4>Post #<%= counter %></h4>
+                    <%= post.text%>
+                    <h6>Comments:<%= post.comments_counter %>, Likes:<%= post.likes_counter %> </h6>
+                </div>
 
-    <h2> <%= @user.name %></h2>
-      <p>Number of posts: <%= @user.posts_counter %></p>
+                <div class="post-comments">
+                    <h4> Comments </h4>
+                    <%post.recent_comments.each do |comment|%>
+                        <p>
+                            <strong><%= comment.author.name %>:</strong>
+                            <span><%= comment.text %></span>
+                        </p>
+                    <%end%>
+                </div>
+            </div>
+        </a>    
+        <% counter += 1 %>
+    <%end%>
+    
+    
 
-  <% @user.posts.each_with_index do |post, index| %>
-    <a href=<%= "/users/#{@user.id}/posts/#{post.id}" %>>
-        <h3 class ='font-bold'>Post #<%= index + 1 %></h3>
-        <p><%= post.text %></p>
-
-          <span>Comments: <%= "#{post.comments_counter || 0 }"%></span>
-          <span>, Likes: <%= "#{post.likes_counter || 0 }"%></span>
-    </a>
-
-    <% post.most_recent_comments.each_with_index do |comment, index| %>
-      <div class = 'flex flex-col'>
-          <span><%= comment.author.name %>:</span>
-          <span> <%= comment.text %></span>
-          </div>
-      <% end %>
-  <% end %>
-</section>
-
-
-
+    
+</div>

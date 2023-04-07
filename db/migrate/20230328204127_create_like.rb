@@ -1,4 +1,4 @@
-class CreateLikes < ActiveRecord::Migration[7.0]
+class CreateLike < ActiveRecord::Migration[7.0]
   def change
     create_table :likes do |t|
       t.references :user, null: false, foreign_key: true
@@ -8,5 +8,3 @@ class CreateLikes < ActiveRecord::Migration[7.0]
     end
   end
 end
-
-
