@@ -1,16 +1,22 @@
+<h1>Show a particular post</h1>
 
-<section class = 'appearance-none'>
-<h1 class = "text-3xl font-medium">Single post to a given user</h1>
-      <h2>
-      Post #<%= @post.id %> by <%= @user.name %>
-      </h2>
-        <span>Comments: <%= @post.comments_counter %></span>
-        <span>, Likes: <%= @post.likes_counter %></span>
-    
-      <p class ='text-3xl font-medium'> <%= @post.text %></p>
-    
-    <% @post.most_recent_comments.each_with_index do |comment| %>
-      <p><%= "#{comment.author.name}: #{comment.text}" %></p>
-    <% end %>
+<div class= "user-details gap" >
+            <div class="post">
+                <div>
+                    <h4> Post #<%= @post.id %> by <%= @user.name %> </h4>
+                    <%= @post.text%>
+                    <h6>Comments:<%= @post.comments_counter %>, Likes:<%= @post.likes_counter %> </h6>
+                </div>
 
-</section>
+                <div class="post-comments">
+                    <h4> Comments </h4>
+                    <% @post.comments.each do |comment| %>
+                        <p>
+                            <strong><%= comment.author.name %>:</strong>
+                            <span><%= comment.text %></span>
+                        </p>
+                    <%end%>
+                </div>
+            </div>  
+
+</div>
