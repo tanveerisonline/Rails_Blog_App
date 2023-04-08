@@ -5,6 +5,7 @@ class Post < ApplicationRecord
 
   after_create :update_posts_counter
 
+
   def initialize(attributes = {})
     super
     self.comments_counter ||= 0
