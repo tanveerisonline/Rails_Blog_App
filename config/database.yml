@@ -3,21 +3,19 @@ default: &default
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
-  username: dev
-  password: root
 
 development:
   <<: *default
-  database: n1_development
+  database: blog_development
   username: dev
   password: root
 
 test:
   <<: *default
-  database: n1_development_test
+  database: blog_development_test
   username: dev
   password: root
 
 production:
   <<: *default
-  database: n1_production
+  database: blog_production

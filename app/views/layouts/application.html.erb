@@ -9,10 +9,14 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
   </head>
 
-  <body class="container center">
-      <% flash.each do |name, msg| -%>
-      <p class="card bg-green"><%= msg %></p>
+    <body>
+    <%= render "layouts/navbar" %>
+    <% flash.each do |name, msg| -%>
+      <p class="bg-green p-1"><%= msg %></p>
     <% end -%>
-    <%= yield %>
+    <div class="container center">
+      <%= yield %>
+    </div>
+
   </body>
 </html>
