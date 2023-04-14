@@ -116,6 +116,12 @@ To run tests, run the following command accordingly:
 - Twitter: [@Tanveer Ahmad](https://twitter.com/Tanveer98589023)
 - LinkedIn: [Tanveer Ahmad](https://www.linkedin.com/in/tanveerisonline/)
 
+👤 **Michael Amponsah**
+
+- GitHub: [@michaelamponsah](https://github.com/michaelamponsah)
+- Twitter: [@_mikeamponsah](https://twitter.com/_mikeamponsah)
+- LinkedIn: [michaelamponsah](https://linkedin.com/in/mikeamponsah)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
