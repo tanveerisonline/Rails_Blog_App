@@ -1,32 +1,32 @@
 class PostsController < ApplicationController
   def index
     @user = User.find(params[:user_id])
-    @posts = Post.includes(:likes, :comments)
+    @posts = @user.posts.includes(:comments)
   end
 
   def show
-    @user = User.find(params[:user_id])
-    # @post = Post.find(params[:id])
-    @post = Post.includes(:likes, :comments).find(params[:id])
-    @likes = @post.likes
+    @post = Post.find(params[:id])
   end
 
   def new
-    @user = current_user
     @post = Post.new
   end
 
   def create
-    @user = current_user
-    @post = @user.posts.new(author: @user, title: params[:post][:title], text: params[:post][:text])
+    @author = User.find(params[:user_id])
+    @post = @author.posts.new(post_params)
 
     if @post.save
-      @post.update_posts_counter
-      flash[:notice] = 'Your post was created successfully'
-      redirect_to user_post_path(@user, @post)
+      redirect_to user_path(id: @post.author_id), notice: 'Post was successfully created'
+
     else
-      flash.alert = 'sorry, something went wrong!'
-      render :new
+      render :new, alert: 'Error ccurred while creating the post'
     end
+  end
+
+  private
+
+  def post_params
+    params.require(:post).permit(:title, :text)
   end
 end
