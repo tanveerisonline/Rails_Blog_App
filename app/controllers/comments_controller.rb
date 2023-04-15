@@ -1,30 +1,25 @@
 class CommentsController < ApplicationController
-  before_action :authenticate_user!, only: %i[create destroy]
   load_and_authorize_resource
   def new
     @comment = Comment.new
+    @post = Post.find(params[:post_id])
   end
 
   def create
-    @comment = Comment.new(comment_params)
+    @user = current_user
     @post = Post.find(params[:post_id])
-    @comment.author_id = current_user.id
-    @comment.post_id = @post.id
+    @comment = Comment.new(comment_params)
+    @comment.author = current_user
+    @comment.post = Post.find(params[:post_id])
+    return unless @comment.save
 
-    if @comment.save
-      flash[:notice] = 'Comment was successfully created'
-      redirect_to user_post_path(user_id: @post.author_id, id: @post.id)
-    else
-      render :new, alert: 'Error occurred while creating the comment'
-    end
+    redirect_to user_post_path(@user, @post)
   end
 
   def destroy
     @comment = Comment.find(params[:id])
-    @post = @comment.post
-    @post.decrement!(:comments_counter)
-    @comment.destroy!
-    redirect_to user_post_path(id: @post.id), notice: 'Comment was successfully deleted!'
+    @comment.destroy
+    redirect_to user_post_path(current_user.id, params[:post_id])
   end
 
   private
