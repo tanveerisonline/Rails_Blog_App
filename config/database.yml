@@ -17,7 +17,7 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  username: dev
+  username: postgres
   password: <%= ENV['postgres_DATABASE_PASSWORD'] %>
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
@@ -26,11 +26,6 @@ default: &default
 development:
   <<: *default
   database: rails_blog_development
-  adapter: postgresql
-  encoding: unicode
-  host: localhost
-  username: dev
-  password: password
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -89,5 +84,5 @@ test:
 production:
   <<: *default
   database: rails_blog_production
-  username: dev
+  username: rails_blog
   password: <%= ENV["RAILS_BLOG_DATABASE_PASSWORD"] %>
