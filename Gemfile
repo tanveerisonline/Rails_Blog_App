@@ -12,6 +12,11 @@ gem 'sprockets-rails'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 1.1'
 
+# use devise gem for authentication
+gem 'cancancan'
+gem 'devise'
+gem 'letter_opener'
+
 # Use the Puma web server [https://github.com/puma/puma]
 gem 'puma', '~> 5.0'
 
@@ -53,6 +58,10 @@ group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'rails-controller-testing'
   gem 'rspec-rails'
+  # Use Json Web Token (JWT) for token based authentication
+  gem 'jwt'
+  # Use ActiveModel has_secure_password
+  gem 'bcrypt', '~> 3.1.7'
 end
 
 group :development do
