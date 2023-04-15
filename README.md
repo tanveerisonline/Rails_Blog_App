@@ -16,7 +16,7 @@
     - [Run tests](#run-tests)
   - [👥 Author ](#-author-)
   - [🔭 Future Features ](#-future-features-)
-  - [🤝 Contributing ](#-contributing-)
+  <!-- - [🤝 Contributing ](#-contributing-) -->
   - [⭐️ Show your support ](#️-show-your-support-)
   - [🤝 Acknowledgement ](#-acknowledgement-)
   - [📝 License ](#-license-)
@@ -116,6 +116,12 @@ To run tests, run the following command accordingly:
 - Twitter: [@Tanveer Ahmad](https://twitter.com/Tanveer98589023)
 - LinkedIn: [Tanveer Ahmad](https://www.linkedin.com/in/tanveerisonline/)
 
+👤 **Michael Amponsah**
+
+- GitHub: [@michaelamponsah](https://github.com/michaelamponsah)
+- Twitter: [@_mikeamponsah](https://twitter.com/_mikeamponsah)
+- LinkedIn: [michaelamponsah](https://linkedin.com/in/mikeamponsah)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
@@ -129,13 +135,13 @@ To run tests, run the following command accordingly:
 
 <!-- CONTRIBUTING -->
 
-## 🤝 Contributing <a name="contributing"></a>
+<!-- ## 🤝 Contributing <a name="contributing"></a>
 
 Contributions, issues, and feature requests are welcome!
 
 Feel free to check the [issues page](https://github.com/tanveerisonline/Rails_Blog_App.git).
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p> -->
 
 <!-- SUPPORT -->
 
